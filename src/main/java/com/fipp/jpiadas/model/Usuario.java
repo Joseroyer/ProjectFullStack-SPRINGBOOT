@@ -5,11 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="usuario")
 public class Usuario {
-
-    public Usuario() {
-
-    }
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="us_cod")
@@ -23,6 +18,17 @@ public class Usuario {
 
     @Column(name="us_senha")
     private String senha;
+
+    public Usuario() {
+        this("","","");
+    }
+    
+    public Usuario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
 
     public Long getId() {
         return id;

@@ -23,8 +23,6 @@ public class PiadaController {
     public List<Piada> getAllPiada(){ return this.piadaRepository.findAll(); }
 
     //Get by Id
-
-
     @GetMapping("/piada/{id}")
     public ResponseEntity<Piada> getPiadaById(@PathVariable(value="id") Long piadaId)
             throws ResourceNotFoundException {

@@ -6,6 +6,7 @@ import com.fipp.jpiadas.model.Categoria;
 import com.fipp.jpiadas.repository.CategoriaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,14 @@ public class CategoriaController {
     @GetMapping("/categoria")
     public List<Categoria> getAllCategoria(){return this.categoriaRepository.findAll();}
 
+    @GetMapping("/listar-todos")
+    public ResponseEntity <Object> buscarTodos()
+    {
+        List <Categoria> cats = categoriaRepository.findAll();
+
+        return new ResponseEntity<>(cats,HttpStatus.CREATED);
+    }
+
     //Get by Id
     @GetMapping("/categoria/{id}")
     public ResponseEntity<Categoria> getCategoriaById(@PathVariable(value="id") Long categoriaId)
@@ -32,6 +41,11 @@ public class CategoriaController {
         return ResponseEntity.ok().body(categoria);
     }
 
+
+    // /categoria/add; 
+    // /cateroria/deletar
+    
+    
     //Insert Categoria
     @PostMapping("/categoria")
     public Categoria createCategoria(@RequestBody Categoria categoria) {return this.categoriaRepository.save(categoria);}

@@ -12,13 +12,19 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/apis")
 public class UsuarioController {
 
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @GetMapping("/usuario")
+    //INSERT USUARIO
+    @PostMapping("/usuario")
+    public Usuario createUsuario(@RequestBody Usuario usuario) { 
+        return this.usuarioRepository.save(usuario); 
+    }
+
+    @GetMapping("/usuario-listar")
     public List<Usuario> getAllUsuario() { return this.usuarioRepository.findAll(); }
 
     //GET BY ID
@@ -31,13 +37,9 @@ public class UsuarioController {
         return ResponseEntity.ok().body(usuario);
     }
 
-    //INSERT USUARIO
-
-    @PostMapping("/usuario")
-    public Usuario createUsuario(@RequestBody Usuario usuario) { return this.usuarioRepository.save(usuario); }
+    
 
     //UPDATE CATEGORIA
-
     @PutMapping("/usuario/{id}")
     public ResponseEntity<Usuario> updateUsuario(@PathVariable (value="id") Long usuarioId,
                                                  @RequestBody Usuario usuarioDetails) throws ResourceNotFoundException{
