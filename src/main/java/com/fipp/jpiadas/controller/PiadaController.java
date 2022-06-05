@@ -23,6 +23,14 @@ public class PiadaController {
     // @GetMapping("/piada")
     // public List<Piada> getAllPiada(){ return this.piadaRepository.findAll(); }
 
+    //Lista ela, e retorno em JSON
+    @GetMapping("/piada/listar")
+    public ResponseEntity listarPiada()
+    {
+        List <Piada> piadas = piadaRepository.findAll();
+        return new ResponseEntity<>(piadas,HttpStatus.OK);
+    }
+
     //Insert Piada
     @PostMapping("/piada")
     public Piada createPiada(@RequestBody Piada piada) {return this.piadaRepository.save(piada);}
