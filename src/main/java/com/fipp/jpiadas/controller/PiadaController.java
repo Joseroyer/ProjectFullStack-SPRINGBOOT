@@ -31,7 +31,7 @@ public class PiadaController {
     }
 
     @GetMapping("/listar-piadas")
-    public ResponseEntity listarPiadasFiltro(@RequestParam String filtro ){
+    public ResponseEntity listarPiadasFiltro(@RequestParam(value="filtro") String filtro ){
         piadas = piadaRepository.findAllWithFilter(filtro);
         return new ResponseEntity<>(piadas,HttpStatus.OK);
     }

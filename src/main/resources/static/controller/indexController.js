@@ -40,16 +40,30 @@ function appendTabela(data) {
 }
 
 function pesquisar() {
-    var filtro = document.getElementById("buscar").value
+    var filtro = document.getElementById("buscar").value;
     fetch("/apis/listar-piadas?filtro=" + filtro)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            appendData(data);
+            appendTabela(data);
         })
         .catch(function (err) {
-            console.log('Palavra não encontrada ' + err);
+            console.log('Error' + err);
         });
+}
+
+function UpdateRanking(id)
+{
+    fetch("/apis/update?id="+id)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (text) {
+        alert(id)
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
 }
 
