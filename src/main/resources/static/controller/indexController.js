@@ -28,38 +28,42 @@ function PiadaDoDia() {
 
 function appendTabela(data) {
 
-    var table="";
-    table+=`<tr><th>Titulo</th><th>Texto</th><th>Curtir</th></tr>`
-    for (let i=0;i<data.length;i++)
-            table+=`<tr>
+    var table = "";
+    table += `<tr><th>Titulo</th><th>Texto</th><th>Curtir</th></tr>`
+    for (let i = 0; i < data.length; i++)
+        table += `<tr>
             <td>${data[i].titulo}</td>
             <td>${data[i].texto}</td>
             <td> <input onclick='UpdateRanking(${data[i].id})'type="submit"></input></td>
-            </tr>`;        
-        document.getElementById("respesq").innerHTML=table;
+            </tr>`;
+    document.getElementById("resultPiad").innerHTML = table;
 }
 
-function pesquisar()
-{
-    var filtro = document.getElementById("buscar").value
-    fetch(URL_TO_FETCH, {method: 'POST'})
-    .then(response=> response.text())
-    .then(result=> 
-        {
-            if(result.includes("Piada"))
-            {
-                fetch("/apis/listar-todas-piadas?filtro="+filtro)
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (data) {
-                    appendData(data);
-                })
-                .catch(function (err) {
-                    console.log('error: ' + err);
-                });
-                
-            }
+function pesquisar() {
+    var filtro = document.getElementById("buscar").value;
+    fetch("/apis/listar-piadas?filtro=" + filtro)
+        .then(function (response) {
+            return response.json();
         })
-    .catch(err=> console.error(err));
+        .then(function (data) {
+            appendTabela(data);
+        })
+        .catch(function (err) {
+            console.log('Error' + err);
+        });
 }
+
+function UpdateRanking(id)
+{
+    fetch("/apis/update?id="+id)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (text) {
+        alert(id)
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+}
+

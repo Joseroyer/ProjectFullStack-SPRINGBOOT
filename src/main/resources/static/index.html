@@ -79,8 +79,6 @@
             <!-- <button class="btnOpenModal" onclick="openModal()">Open Modal</button> -->
             <button type="button" id="modal-btn" class="button" onclick="PiadaDoDia()">Clique aqui para revelar a piada!</button>
         </div>
-
-
         <!--MODAL-->
         <div id="my-modal" class="modal">
             <div class="modal-content">
@@ -96,21 +94,8 @@
                     <p id="conteudo" class="pre"></p>
                 </div>
                 <!--<div class="modal-footer"></div>-->
-
-
             </div>
         </div>
-        <!--  <h1 class="Title">Click it, it's awesome! :)</h1>
-
-<div id="icon" class="Icon">
-  <span></span>
-  <span></span>
-  <span></span>
-</div> -->
-
-
-
-
     </section>
     <!-- End Hero Section -->
 
@@ -130,14 +115,14 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-6 col-md-10 d-flex">
                                     <input type="text" class="form-control" placeholder="Palavra chave, e/ou Categoria">
-                                    <button type="submit" id="buscar" class="ms-2" onclick="showTable()">Pesquisar</button>
+                                    <button type="submit" id="buscar" class="ms-2" onclick="mostrarTabela()">Pesquisar</button>
                                     <!-- <input type="submit" id="buscar" class="ms-2" value="Consultar" onclick="showTable()" /> -->
                                     <!-- <input type="submit" id="consultar" value="Consultar" /><br> -->
 
-                                    <div id="customers">
-                                        <h1>A Fancy Table</h1>
+                                    <div id="container-table" style="display: none;">
+                                        <!-- <h1>A Fancy Table</h1> -->
 
-                                        <table id="customers">
+                                        <table class="customers">
                                             <tr>
                                                 <th>Company</th>
                                                 <th>Contact</th>
