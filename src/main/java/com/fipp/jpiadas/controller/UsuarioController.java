@@ -4,12 +4,15 @@ import com.fipp.jpiadas.exception.ResourceNotFoundException;
 import com.fipp.jpiadas.model.Usuario;
 import com.fipp.jpiadas.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/apis")
@@ -24,11 +27,14 @@ public class UsuarioController {
         return this.usuarioRepository.save(usuario); 
     }
 
+
     @GetMapping("/usuario-listar")
-    public List<Usuario> getAllUsuario() { return this.usuarioRepository.findAll(); }
+    public ResponseEntity getAllUsuario() { 
+        List <Usuario> user = usuarioRepository.findAll();
+        return new ResponseEntity<>(user,HttpStatus.OK);
+     }
 
     //GET BY ID
-
     @GetMapping("/usuario/{id}")
     public ResponseEntity<Usuario> getUsuarioById(@PathVariable(value="id") Long usuarioId)
         throws ResourceNotFoundException {
@@ -38,7 +44,6 @@ public class UsuarioController {
     }
 
     
-
     //UPDATE CATEGORIA
     @PutMapping("/usuario/{id}")
     public ResponseEntity<Usuario> updateUsuario(@PathVariable (value="id") Long usuarioId,

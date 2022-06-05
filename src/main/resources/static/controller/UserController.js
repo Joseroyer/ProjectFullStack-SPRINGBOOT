@@ -25,11 +25,3 @@ function logar() {
 
 
 
-// async function gravarUsuario() {
-//     var data = JSON.stringify(Object.fromEntries(new FormData(form)));
-//     let response = await fetch("/api/usuario",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
-//     let userData = await response.text();
-//     return userData; // não é necessário o await no return
-// }
-
-
