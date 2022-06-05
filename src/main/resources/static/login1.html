@@ -67,17 +67,18 @@
           Login
           <span class="underline"></span>
         </button>
+
         <!-- LOGIN -->
-        <form id="fdados"class="form form-login" method="get">
+        <form id="fdados" class="form form-login">
           <fieldset>
             <legend>Please, enter your email and password for login.</legend>
             <div class="input-block">
               <label for="login-email">E-mail</label>
-              <input id="login" type="email" required>
+              <input id="login" name="email" type="email" required>
             </div>
             <div class="input-block">
               <label for="login-password">Senha</label>
-              <input id="senha" type="password" required>
+              <input id="senha" name="senha" type="password" required>
             </div>
           </fieldset>
           <button type="submit" class="btn-login" onclick="logar()">Login</button>
@@ -88,8 +89,9 @@
           Registrar
           <span class="underline"></span>
         </button>
+
         <!-- GRAVAR -->
-        <form  class="form form-signup" id="form">
+        <form  id="forml" class="form form-signup" >
           <fieldset>
             <legend>Please, enter your email, password and password confirmation for sign up.</legend>
             <div class="input-block">
@@ -110,7 +112,7 @@
               <input id="signup-password-confirm" type="password" required>
             </div> -->
           </fieldset>
-          <button type="submit" class="btn-signup" onclick="gravarUsuario()">Continue</button>
+          <button type="button" class="btn-signup" onclick="gravar()">Continue</button>
         </form>
       </div>
     </div>

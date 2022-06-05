@@ -67,13 +67,12 @@
                         <form id="fdados" class="requires-validation">
 
                             <div class="col-md-12">
-                                <select id="categoria" class="form-select mt-3" onclick="exibirCat()">
+                                <select id="categoria" name="categoria" class="form-select mt-3" onclick="exibirCat()">
                                     <option>Selecione uma Categoria</option>
                                     <option></option>
                                 </select>
 
                             </div>
-
 
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="titulo" placeholder="Título" required>
@@ -83,17 +82,22 @@
                             <br>
 
                             <div class="col-md-12">
-                                <textarea name="" id="piadas" rows="4" placeholder="Digite sua Piada aqui!"></textarea>
+                                <textarea name="texto" id="piadas" rows="4" placeholder="Digite sua Piada aqui!"></textarea>
                             </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="chave" placeholder="Palavras Chaves"
+                                <input class="form-control" type="text" name="keywords" id="keywords" placeholder="Palavras Chaves"
                                     required>
-                                <div class="valid-feedback">Email field is valid!</div>
-                                <div class="invalid-feedback">Email field cannot be blank!</div>
+                                <!-- <div class="valid-feedback">Email field is valid!</div>
+                                <div class="invalid-feedback">Email field cannot be blank!</div> -->
                             </div>
+                            <br>
+                            <div class="col-md-12">
+                                <input type="number" disabled value="0" name="ranking" id="ranking" class="form-control" />
+                            </div>
+
                             <div class="form-button mt-3">
-                                <button type="submit" class="btn btn-primary" onclick="gravarPiada()">Cadastrar</button>
+                                <button type="button" class="btn btn-primary" onclick="gravarPiada()">Cadastrar</button>
                             </div>
 
                         </form>

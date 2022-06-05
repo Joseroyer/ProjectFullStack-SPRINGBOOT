@@ -36,7 +36,6 @@ public class Piada {
     }
 
     public Piada(Long id, String titulo, String texto, String keywords, int ranking, Categoria categoria) {
-        super();
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
@@ -44,6 +43,7 @@ public class Piada {
         this.ranking = 0;
         this.categoria = categoria;
     }
+    
 
     public Long getId() {
         return id;

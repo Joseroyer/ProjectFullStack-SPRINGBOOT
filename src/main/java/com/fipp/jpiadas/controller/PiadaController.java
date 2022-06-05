@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/apis")
 public class PiadaController {
 
     @Autowired
@@ -33,7 +33,10 @@ public class PiadaController {
 
     //Insert Piada
     @PostMapping("/piada")
-    public Piada createPiada(@RequestBody Piada piada) {return this.piadaRepository.save(piada);}
+    public Piada createPiada(@RequestBody Piada piada) {
+        System.out.println(piada);
+        return this.piadaRepository.save(piada);
+    }
 
     //Get by Id
     @GetMapping("/piada/{id}")

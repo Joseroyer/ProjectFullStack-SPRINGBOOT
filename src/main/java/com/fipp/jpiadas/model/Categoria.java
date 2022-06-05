@@ -17,6 +17,9 @@ public class Categoria {
         this.id = id;
         this.nome = nome;
     }
+    public Categoria(Long id) {
+        this.id = id;
+    }
     public Categoria() {
         this(0L,"");
     }
