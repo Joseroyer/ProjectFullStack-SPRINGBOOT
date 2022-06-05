@@ -34,10 +34,10 @@ function appendTabela(data) {
         table += `<tr>
             <td>${data[i].titulo}</td>
             <td>${data[i].texto}</td>
-            <td> <input onclick='UpdateRanking(${data[i].id})'type="submit"></input></td>
             </tr>`;
     document.getElementById("resultPiad").innerHTML = table;
 }
+{/* <td> <input onclick='UpdateRanking(${data[i].id})'type="submit"></input></td> */ }
 
 function pesquisar() {
     var filtro = document.getElementById("buscar").value;
@@ -53,17 +53,16 @@ function pesquisar() {
         });
 }
 
-function UpdateRanking(id)
-{
-    fetch("/apis/update?id="+id)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (text) {
-        alert(id)
-    })
-    .catch(function (err) {
-        console.log('error: ' + err);
-    });
+function UpdateRanking(id) {
+    fetch("/apis/update?id=" + id)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (text) {
+            alert(id)
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
 }
 

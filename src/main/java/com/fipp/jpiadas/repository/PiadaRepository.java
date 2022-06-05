@@ -8,9 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface PiadaRepository extends JpaRepository<Piada,Long> {
+public interface PiadaRepository extends JpaRepository<Piada, Long> {
 
-    @Query(value = "SELECT * FROM piada P INNER JOIN categoria C on P.cat_id = C.cat_id where p.pi_keyword LIKE %:filter% AND p.cat_nome LIKE %:filter% ORDER BY pi_ranking desc", nativeQuery = true)
-    public List<Piada> findAllWithFilter(@Param("filter") String filter);
+    @Query(value = "SELECT * from piada p INNER JOIN categoria c on c.cat_id = p.cat_id WHERE p.pi_keywords LIKE %:filtro% or c.cat_nome LIKE %:filtro% ORDER BY pi_ranking DESC", nativeQuery = true)
+    List<Piada> findAllWithFilter(@Param("filtro") String filtro);
 
+    @Query(value = "UPDATE piada SET pi_ranking = pi_ranking+1 WHERE pi_id = id ", nativeQuery = true)
+    List<Piada> findAllWithFilter(@Param("id") int id);
 }
