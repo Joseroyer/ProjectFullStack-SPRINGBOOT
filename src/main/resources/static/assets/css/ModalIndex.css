@@ -82,14 +82,14 @@
     padding: 10px 20px;
     cursor: pointer;
     color: red;
-    /* transition: all 0.3s ease;
-    outline: none; */
     font-size: 20px;
     border-radius: 50px;
     /*  color: #ccc;
     float: right;
     font-size: 30px;
     color: #fff; */
+    /* transition: all 0.3s ease;
+    outline: none; */
 }
 
 
