@@ -9,14 +9,13 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+
     <!-- Favicons -->
     <link href="assets/Imagens/Logo/z32.png" rel="icon">
     <link href="assets/Imagens/Logo/z180.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -24,9 +23,11 @@
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+    <link href="assets/vendor/bootstrap/css/bootstrap.rtl.css">
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <!--MODAL CSS-->
+    <link href="assets/css/ModalIndex.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: TheEvent - v4.3.0
@@ -69,20 +70,39 @@
     <section id="hero">
         <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
             <h1 class="mb-4 pb-0">Confira aqui a <br><span> piada do dia</span></h1>
-            <!-- <p class="mb-4 pb-0"></p> -->
-            <a id="btn-revelar-piada" class="buy-tickets scrollto" href="./index.html">Revelar piada do dia</a>
-            <!-- MODAL AQUI
-            
-                MODAL 
-                MODAL
-                 MODAL 
-                MODAL
-                MODAL 
-                MODAL
-            -->
+
+            <!--  <a class="btnOpenModal" onclick="openModal()"> Revelar piada do dia</a> -->
+            <!-- <button class="btnOpenModal" onclick="openModal()">Open Modal</button> -->
+            <button id="modal-btn" class="button">Click Here</button>
         </div>
+
+
+        <!--MODAL-->
+        <div id="my-modal" class="modal">
+            <div class="modal-content">
+
+
+                <div class="modal-header">
+                    <!-- <p>E a piada do dia é:</p> -->
+                    <span class="close">&#9746;</span>
+                </div>
+
+                <div class="modal-body">
+                    <p>This is my modal</p>
+                    <p></p>
+                </div>
+                <!--<div class="modal-footer"></div>-->
+
+
+            </div>
+        </div>
+
+
+
     </section>
     <!-- End Hero Section -->
+
+
 
     <main id="main">
 
@@ -127,7 +147,7 @@
                             <li><i class="bi bi-chevron-right"></i> <a href="#hero">Piada do dia</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="#about">Pesquisar Piadas</a></li>
                             <li><i class="bi bi-chevron-right"></i> <a href="./register.html">Cadastrar Piada</a></li>
-                            
+
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 footer-links">
@@ -179,9 +199,16 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+    <!--BOOTSTRAP SCRIPT-->
+    <script src="node_modules/jquery/dist/umd/jquery.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="node_modules/bootstrap/dist/umd/boostrap.js"></script>
+
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    <!-- JS do MODAL -->
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
