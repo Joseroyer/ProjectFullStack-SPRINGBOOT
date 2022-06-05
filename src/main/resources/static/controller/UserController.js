@@ -31,13 +31,18 @@ function gravar() {
 function logar() {
     var login = document.getElementById("login").value;
     var senha = document.getElementById("senha").value;
-    // 
-    const URL_TO_FETCH = '/security/autenticar?login=${login}&senha=${senha}';
+    // ?login=${login}&senha=${senha}
+    const URL_TO_FETCH = '/security/autenticar?';
     let fdados = document.getElementById("fdados");
     var jsontext = JSON.stringify(Object.fromEntries(
         new FormData(fdados)));
-
-    fetch(URL_TO_FETCH, {
+    
+    let data = {
+        login:login, 
+        senha:senha
+    }
+    let query = new URLSearchParams(data);
+    fetch(URL_TO_FETCH + query, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

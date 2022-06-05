@@ -3,6 +3,7 @@ package com.fipp.jpiadas.controller;
 import com.fipp.jpiadas.exception.ResourceNotFoundException;
 import com.fipp.jpiadas.model.Categoria;
 import com.fipp.jpiadas.model.Piada;
+import com.fipp.jpiadas.model.Usuario;
 import com.fipp.jpiadas.repository.PiadaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,8 @@ public class PiadaController {
     //Insert Piada
     @PostMapping("/piada")
     public Piada createPiada(@RequestBody Piada piada) {
-        System.out.println(piada);
+        Usuario user = new Usuario(Long.parseLong("1"),"teste","teste@teste","1234");
+        piada.setFk_user(user);
         return this.piadaRepository.save(piada);
     }
 
