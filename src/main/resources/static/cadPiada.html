@@ -64,42 +64,40 @@
                     <div class="form-items">
                         <h3>Cadastrar Piada</h3>
                         <p>Faça me rir.</p>
-                        <form id="fdados" class="requires-validation" novalidate>
+                        <form id="fdados" class="requires-validation">
 
                             <div class="col-md-12">
                                 <select id="categoria" class="form-select mt-3" onclick="exibirCat()">
                                     <option>Selecione uma Categoria</option>
-                                      <option></option>
-                               </select>
+                                    <option></option>
+                                </select>
 
-                           </div>
+                            </div>
 
-                           
+
                             <div class="col-md-12">
-                               <input class="form-control" type="text" name="titulo" placeholder="Título" required>
-                               <div class="valid-feedback">Username field is valid!</div>
-                               <div class="invalid-feedback">Username field cannot be blank!</div>
+                                <input class="form-control" type="text" name="titulo" placeholder="Título" required>
+                                <div class="valid-feedback">Username field is valid!</div>
+                                <div class="invalid-feedback">Username field cannot be blank!</div>
                             </div>
                             <br>
 
                             <div class="col-md-12">
-                                <textarea name="" id="piadas"  rows="4" placeholder="Digite sua Piada aqui!"></textarea>
-                             </div>
+                                <textarea name="" id="piadas" rows="4" placeholder="Digite sua Piada aqui!"></textarea>
+                            </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="chave" placeholder="Palavras Chaves" required>
-                                 <div class="valid-feedback">Email field is valid!</div>
-                                 <div class="invalid-feedback">Email field cannot be blank!</div>
+                                <input class="form-control" type="text" name="chave" placeholder="Palavras Chaves"
+                                    required>
+                                <div class="valid-feedback">Email field is valid!</div>
+                                <div class="invalid-feedback">Email field cannot be blank!</div>
                             </div>
-                        <!-- <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                          <label class="form-check-label">I confirm that all data are correct</label>
-                         <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
-                        </div> -->
                             <div class="form-button mt-3">
-                                <button id="submit" type="submit" class="btn btn-primary" onclick="gravarPiada()">Cadastrar</button>
+                                <button type="submit" class="btn btn-primary" onclick="gravarPiada()">Cadastrar</button>
                             </div>
+
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -107,7 +105,7 @@
     </div>
 
 
-
+    <script src="controller/PiadaController.js"></script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
@@ -118,7 +116,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-    <script src="controller/PiadaController.js"></script>
+
 
 </body>
 

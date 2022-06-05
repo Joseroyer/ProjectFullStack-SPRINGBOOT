@@ -31,11 +31,12 @@ public class Piada {
     }
 
     public Piada(Long id, String titulo, String texto, String keywords, int ranking, Categoria categoria) {
+        super();
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
         this.keywords = keywords;
-        this.ranking = ranking;
+        this.ranking = 0;
         this.categoria = categoria;
     }
 

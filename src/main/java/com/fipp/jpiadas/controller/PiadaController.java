@@ -5,6 +5,7 @@ import com.fipp.jpiadas.model.Categoria;
 import com.fipp.jpiadas.model.Piada;
 import com.fipp.jpiadas.repository.PiadaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +20,12 @@ public class PiadaController {
     @Autowired
     PiadaRepository piadaRepository;
 
-    @GetMapping("/piada")
-    public List<Piada> getAllPiada(){ return this.piadaRepository.findAll(); }
+    // @GetMapping("/piada")
+    // public List<Piada> getAllPiada(){ return this.piadaRepository.findAll(); }
+
+    //Insert Piada
+    @PostMapping("/piada")
+    public Piada createPiada(@RequestBody Piada piada) {return this.piadaRepository.save(piada);}
 
     //Get by Id
     @GetMapping("/piada/{id}")
@@ -39,9 +44,7 @@ public class PiadaController {
         return null;
     }
 
-    //Insert Piada
-    @PostMapping("/piada")
-    public Piada createPiada(@RequestBody Piada piada) {return this.piadaRepository.save(piada);}
+    
 
     //Update Categoria
     @PutMapping("/piada/{id}")

@@ -1,11 +1,4 @@
-async function gravarPiada()
-{
-    
-    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
-    let response = await fetch("/api/piada",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
-    let userData = await response.text();
-    return userData; // não é necessário o await no return
-}
+
 
 function exibirCat()
 {
@@ -27,4 +20,12 @@ function exibirCat()
         document.getElementById("categoria").innerHTML=resp;
     }
     
+}
+
+async function gravarPiada()
+{
+    var data = JSON.stringify(Object.fromEntries(new FormData(fdados)));
+    let response = await fetch("/api/piada",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
+    let userData = await response.text();
+    return userData; // não é necessário o await no return
 }
