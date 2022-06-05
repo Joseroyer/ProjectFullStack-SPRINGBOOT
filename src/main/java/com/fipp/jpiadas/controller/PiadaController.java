@@ -20,15 +20,19 @@ public class PiadaController {
 
     @Autowired
     PiadaRepository piadaRepository;
-
-    // @GetMapping("/piada")
-    // public List<Piada> getAllPiada(){ return this.piadaRepository.findAll(); }
+    List <Piada> piadas;
 
     //Lista ela, e retorno em JSON
     @GetMapping("/piada/listar")
     public ResponseEntity listarPiada()
     {
-        List <Piada> piadas = piadaRepository.findAll();
+        piadas = piadaRepository.findAll();
+        return new ResponseEntity<>(piadas,HttpStatus.OK);
+    }
+
+    @GetMapping("/apis/listar-piadas")
+    public ResponseEntity listarPiadasFiltro(@RequestParam String filtro ){
+        piadas = piadaRepository.findAllWithFilter(filtro);
         return new ResponseEntity<>(piadas,HttpStatus.OK);
     }
 

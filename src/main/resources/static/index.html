@@ -28,6 +28,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!--MODAL CSS-->
     <link href="assets/css/ModalIndex.css" rel="stylesheet">
+    <script src="controller/indexController.js"></script>
 
     <!-- =======================================================
   * Template Name: TheEvent - v4.3.0
@@ -73,7 +74,7 @@
 
             <!--  <a class="btnOpenModal" onclick="openModal()"> Revelar piada do dia</a> -->
             <!-- <button class="btnOpenModal" onclick="openModal()">Open Modal</button> -->
-            <button id="modal-btn" class="button">Clique aqui para revelar a piada!</button>
+            <button type="button" id="modal-btn" class="button" onclick="PiadaDoDia()">Clique aqui para revelar a piada!</button>
         </div>
 
 
@@ -84,12 +85,12 @@
 
                 <div class="modal-header">
                     <!-- <p>E a piada do dia é:</p> -->
-                    <p></p>
+                    <p id="titulo"></p>
                     <span class="close">&#9746;</span>
                 </div>
 
                 <div class="modal-body">
-                    <p class="pre">exibir aqui piada do dia</p>
+                    <p id="conteudo" class="pre"></p>
                 </div>
                 <!--<div class="modal-footer"></div>-->
 
@@ -118,7 +119,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-6 col-md-10 d-flex">
                                     <input type="text" class="form-control" placeholder="Palavra chave, e/ou Categoria">
-                                    <button type="submit" class="ms-2">Pesquisar</button>
+                                    <button type="button" id="buscar" class="ms-2">Pesquisar</button>
                                 </div>
                             </div>
                         </form>
