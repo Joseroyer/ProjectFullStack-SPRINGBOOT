@@ -34,7 +34,7 @@ public class AccessFilter implements Filter {
 
         registrationBean.setFilter(new AccessFilter());
         // definindo as URLs para aplicar o filtro
-        registrationBean.addUrlPatterns("/api/*");
+        registrationBean.addUrlPatterns("/nada/*");
 
         return registrationBean;
     }

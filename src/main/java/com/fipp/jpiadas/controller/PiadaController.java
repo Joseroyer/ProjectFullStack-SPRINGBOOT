@@ -3,6 +3,7 @@ package com.fipp.jpiadas.controller;
 import com.fipp.jpiadas.exception.ResourceNotFoundException;
 import com.fipp.jpiadas.model.Categoria;
 import com.fipp.jpiadas.model.Piada;
+import com.fipp.jpiadas.model.Usuario;
 import com.fipp.jpiadas.repository.PiadaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,22 +20,27 @@ public class PiadaController {
 
     @Autowired
     PiadaRepository piadaRepository;
-
-    // @GetMapping("/piada")
-    // public List<Piada> getAllPiada(){ return this.piadaRepository.findAll(); }
+    List <Piada> piadas;
 
     //Lista ela, e retorno em JSON
     @GetMapping("/piada/listar")
     public ResponseEntity listarPiada()
     {
-        List <Piada> piadas = piadaRepository.findAll();
+        piadas = piadaRepository.findAll();
+        return new ResponseEntity<>(piadas,HttpStatus.OK);
+    }
+
+    @GetMapping("/apis/listar-piadas")
+    public ResponseEntity listarPiadasFiltro(@RequestParam String filtro ){
+        piadas = piadaRepository.findAllWithFilter(filtro);
         return new ResponseEntity<>(piadas,HttpStatus.OK);
     }
 
     //Insert Piada
     @PostMapping("/piada")
     public Piada createPiada(@RequestBody Piada piada) {
-        System.out.println(piada);
+        Usuario user = new Usuario(Long.parseLong("1"),"teste","teste@teste","1234");
+        piada.setFk_user(user);
         return this.piadaRepository.save(piada);
     }
 

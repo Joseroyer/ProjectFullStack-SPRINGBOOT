@@ -2,6 +2,7 @@ package com.fipp.jpiadas.controller;
 
 import java.util.List;
 
+import org.hibernate.annotations.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fipp.jpiadas.model.Usuario;
@@ -22,10 +24,9 @@ public class SecurityController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @GetMapping("/autenticar")
-    public ResponseEntity<Object> autenticar( String email, 
-    @RequestBody String senha) {
-        List<Usuario> user = usuarioRepository.findAllWithFilter(email,senha);
+    @PostMapping("/autenticar")
+    public ResponseEntity<Object> autenticar(@RequestParam String login, @RequestParam String senha) {
+        List<Usuario> user = usuarioRepository.findAllWithFilter(login,senha);
         // int flag = 0;
         // for (int i = 0; i < user.size(); i++) {
         //     if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getEmail()))
