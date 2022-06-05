@@ -66,6 +66,7 @@ public class PiadaController {
         piada.setKeywords(piadaDetails.getKeywords());
         piada.setTexto(piadaDetails.getTexto());
         piada.setTitulo(piadaDetails.getTitulo());
+        piada.setFk_user(piadaDetails.getFk_user());
 
 
         //Retorno

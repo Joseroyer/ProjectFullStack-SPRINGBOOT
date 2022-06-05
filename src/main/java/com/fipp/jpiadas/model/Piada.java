@@ -28,6 +28,10 @@ public class Piada {
     @JoinColumn(name="cat_id", nullable=false)
     private Categoria categoria;
 
+    @ManyToOne
+    @JoinColumn(name="us_cod", nullable=false)
+    private Usuario fk_user;
+
     public Piada() {
     }
 
@@ -89,4 +93,12 @@ public class Piada {
         this.categoria = categoria;
     }
 
+
+    public Usuario getFk_user() {
+        return fk_user;
+    }
+
+    public void setFk_user(Usuario fk_user) {
+        this.fk_user = fk_user;
+    }
 }
