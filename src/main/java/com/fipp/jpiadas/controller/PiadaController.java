@@ -30,7 +30,7 @@ public class PiadaController {
     //
     @GetMapping("/listar-piadas")
     public ResponseEntity<Object> listarPiadasFiltro(@RequestParam(value = "filtro") String filtro) {
-        piadas = piadaRepository.findAllWithFilter(filtro);
+        piadas = piadaRepository.findAllWithFilter(filtro.toLowerCase());
         return new ResponseEntity<>(piadas, HttpStatus.OK);
     }
 
@@ -38,7 +38,7 @@ public class PiadaController {
     @RequestMapping("/update")
     public ResponseEntity <Object> update(@RequestParam(value = "id")int id)
     {   
-        List<Piada> piadas = piadaRepository.findAllWithFilter(id);
+        int piadas = piadaRepository.findAllWithFilter2(id);
         return new ResponseEntity<>(piadas,HttpStatus.OK);
     }
 

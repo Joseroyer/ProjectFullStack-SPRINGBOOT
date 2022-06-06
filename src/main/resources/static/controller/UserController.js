@@ -23,6 +23,7 @@ function gravar() {
         })
         .then(function (text) {
             alert("Cadastro com Sucesso!");
+            
         }).catch(function (error) {
             console.error(error);
         });

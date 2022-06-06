@@ -18,6 +18,7 @@ function gravarPiada() {
         }).catch(function (error) {
             console.error(error);
         });
+        event.defaultPrevented
 }
 
 function exibirCat()
