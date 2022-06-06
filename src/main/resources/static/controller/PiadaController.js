@@ -3,22 +3,38 @@ function gravarPiada() {
     var fdados = document.getElementById("fdados");
     var jsontext = JSON.stringify(Object.fromEntries(
         new FormData(fdados)));
-    fetch(URL, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: 'POST', body: jsontext
-    })
-        .then(function (response) {
-            return response.text();
+    
+    let titulo = document.getElementById("titulo").value;
+    let texto = document.getElementById("texto").value;
+    let keywords= document.getElementById("keywords").value;
+
+    console.log(titulo);
+
+    if(titulo=="")
+        alert("O campo título deve ser informado!!");
+    else
+    if(texto=="")
+        alert("O campo do texto da piada precisa ser informado");
+    else
+    if(keywords=="")
+        alert("O campos do keywords deve ser informado!");
+    else
+        fetch(URL, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST', body: jsontext
         })
-        .then(function (text) {
-            alert("Piada cadastrada com Sucesso!");
-        }).catch(function (error) {
-            console.error(error);
-        });
-        event.defaultPrevented
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                alert("Piada cadastrada com Sucesso!");
+            }).catch(function (error) {
+                console.error(error);
+            });
+    
 }
 
 function exibirCat()
@@ -42,6 +58,10 @@ function exibirCat()
     }
     
 }
+
+window.onload=function(){
+    exibirCat();
+};
 
 // async function gravarPiada()
 // {

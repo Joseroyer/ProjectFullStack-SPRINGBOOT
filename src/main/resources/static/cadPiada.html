@@ -67,7 +67,7 @@
                         <form id="fdados" class="requires-validation">
 
                             <div class="col-md-12">
-                                <select id="categoria" name="categoria" class="form-select mt-3" onclick="exibirCat()">
+                                <select id="categoria" name="categoria" class="form-select mt-3">
                                     <option>Selecione uma Categoria</option>
                                     <option></option>
                                 </select>
@@ -75,19 +75,19 @@
                             </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="titulo" placeholder="Título" required>
+                                <input id="titulo" class="form-control" type="text" name="titulo" placeholder="Título" required="">
                                 <div class="valid-feedback">Username field is valid!</div>
                                 <div class="invalid-feedback">Username field cannot be blank!</div>
                             </div>
                             <br>
 
                             <div class="col-md-12">
-                                <textarea name="texto" id="piadas" rows="4" placeholder="Digite sua Piada aqui!"></textarea>
+                                <textarea type="text" name="texto" id="texto" rows="4" placeholder="Digite sua Piada aqui!"></textarea>
                             </div>
 
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="keywords" id="keywords" placeholder="Palavras Chaves"
-                                    required>
+                                    required="">
                                 <!-- <div class="valid-feedback">Email field is valid!</div>
                                 <div class="invalid-feedback">Email field cannot be blank!</div> -->
                             </div>
