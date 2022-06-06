@@ -27,13 +27,13 @@ public class SecurityController {
     @PostMapping("/autenticar")
     public ResponseEntity<Object> autenticar(@RequestParam String login, @RequestParam String senha) {
         List<Usuario> user = usuarioRepository.findAllWithFilter(login,senha);
-        // int flag = 0;
-        // for (int i = 0; i < user.size(); i++) {
-        //     if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getEmail()))
-        //         flag = 1;
-        // }
+        int flag = 0;
+        for (int i = 0; i < user.size(); i++) {
+            if (senha.equals(user.get(i).getSenha()) && login.equals(user.get(i).getEmail()))
+                flag = 1;
+        }
         String token = "";
-        if (user!=null) {
+        if (flag==1) {
             token = JWTTokenProvider.getToken(senha, "ADM");
             System.out.println(token);
             return new ResponseEntity<>(token, HttpStatus.OK);

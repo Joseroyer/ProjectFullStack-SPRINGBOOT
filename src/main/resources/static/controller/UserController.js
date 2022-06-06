@@ -1,11 +1,4 @@
-// async function gravarUsuario()
-// {
-//     var data = JSON.stringify(Object.fromEntries(new FormData(forml)));
-//     console.log(data);
-//     let response = await fetch("/apis/usuario",{headers: {'Accept': 'application/json','Content-Type': 'application/json'}, method: 'POST', body: data});
-//     let userData = await response.text();
-//     return userData; // não é necessário o await no return
-// }
+
 function gravar() {
     const URL = "/apis/usuario";
     var fdados = document.getElementById("forml");
@@ -47,7 +40,6 @@ function gravar() {
 function logar() {
     var login = document.getElementById("login1").value;
     var senha = document.getElementById("senha1").value;
-    // ?login=${login}&senha=${senha}
     const URL_TO_FETCH = '/security/autenticar?';
     let fdados = document.getElementById("fdados");
     var jsontext = JSON.stringify(Object.fromEntries(
