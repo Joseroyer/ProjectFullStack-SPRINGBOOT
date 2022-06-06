@@ -31,10 +31,13 @@ function gravarPiada() {
             })
             .then(function (text) {
                 alert("Piada cadastrada com Sucesso!");
+                titulo="";
+                texto="";
+                keywords="";
             }).catch(function (error) {
                 console.error(error);
             });
-    
+        
 }
 
 function exibirCat()

@@ -11,28 +11,42 @@ function gravar() {
     var fdados = document.getElementById("forml");
     var jsontext = JSON.stringify(Object.fromEntries(
         new FormData(fdados)));
-    fetch(URL, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: 'POST', body: jsontext
-    })
-        .then(function (response) {
-            return response.text();
+
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("email").value;
+    let senha = document.getElementById("senha").value;
+
+    if(nome=="")
+        alert("Preencha corretamente o campo nome!");
+    else
+    if(email=="")
+        alert("Preencha corretamente o campo email!");
+    else
+    if(senha=="")
+        alert("Preencha corretamente o campo senha!");
+    else    
+        fetch(URL, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST', body: jsontext
         })
-        .then(function (text) {
-            alert("Cadastro com Sucesso!");
-            
-        }).catch(function (error) {
-            console.error(error);
-        });
-        event.preventDefault("fdados");
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                alert("Cadastro com Sucesso!");
+                
+            }).catch(function (error) {
+                console.error(error);
+            });
+            event.preventDefault("forml");
 }
 
 function logar() {
-    var login = document.getElementById("login").value;
-    var senha = document.getElementById("senha").value;
+    var login = document.getElementById("login1").value;
+    var senha = document.getElementById("senha1").value;
     // ?login=${login}&senha=${senha}
     const URL_TO_FETCH = '/security/autenticar?';
     let fdados = document.getElementById("fdados");
