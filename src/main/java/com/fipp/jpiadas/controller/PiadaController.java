@@ -27,11 +27,19 @@ public class PiadaController {
         piadas = piadaRepository.findAll();
         return new ResponseEntity<>(piadas, HttpStatus.OK);
     }
-
+    //
     @GetMapping("/listar-piadas")
     public ResponseEntity<Object> listarPiadasFiltro(@RequestParam(value = "filtro") String filtro) {
         piadas = piadaRepository.findAllWithFilter(filtro);
         return new ResponseEntity<>(piadas, HttpStatus.OK);
+    }
+
+    //UPDATE PIADA - USADADA NO CONTADOR DE RANKING
+    @RequestMapping("/update")
+    public ResponseEntity <Object> update(@RequestParam(value = "id")int id)
+    {   
+        List<Piada> piadas = piadaRepository.findAllWithFilter(id);
+        return new ResponseEntity<>(piadas,HttpStatus.OK);
     }
 
     // Insert Piada
