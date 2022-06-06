@@ -47,6 +47,7 @@ public class PiadaController {
     public Piada createPiada(@RequestBody Piada piada) {
         Usuario user = new Usuario(Long.parseLong("1"), "teste", "teste@teste", "1234");
         piada.setFk_user(user);
+        piada.setKeywords(piada.getKeywords().toLowerCase());
         return this.piadaRepository.save(piada);
     }
 

@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface PiadaRepository extends JpaRepository<Piada, Long> {
 
-    @Query(value = "SELECT * from piada p INNER JOIN categoria c on c.cat_id = p.cat_id WHERE p.pi_keywords LIKE %:filtro% OR c.cat_nome LIKE %:filtro% ORDER BY pi_ranking DESC", nativeQuery = true)
+    @Query(value = "SELECT * from piada p INNER JOIN categoria c on c.cat_id = p.cat_id WHERE p.pi_keywords LIKE %:filtro% OR  c.cat_nome LIKE %:filtro% ORDER BY pi_ranking DESC", nativeQuery = true)
     List<Piada> findAllWithFilter(@Param("filtro") String filtro);
 
     @Transactional
