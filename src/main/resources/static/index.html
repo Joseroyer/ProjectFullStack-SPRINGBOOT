@@ -114,15 +114,18 @@
                         <form method="POST">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6 col-md-10 d-flex">
-                                    <input id="buscar" type="text" class="form-control" placeholder="Palavra chave, e/ou Categoria">
-                                    <button type="button"  class="ms-2" onclick="pesquisar1()">Pesquisar</button>
-                                </div>
-                                <div>
-                                    <br>
-                                    <table style="text-align: center; ">
-                                            <tbody id="resultPiad">
-                                            </tbody>
-                                    </table>
+                                    <input type="text" class="form-control" placeholder="Palavra chave, e/ou Categoria">
+                                    <button type="button" id="buscar" class="ms-2" onclick="pesquisar()">Pesquisar</button>
+                                    <!-- <input type="submit" id="buscar" class="ms-2" value="Consultar" onclick="showTable()" /> -->
+                                    <!-- <input type="submit" id="consultar" value="Consultar" /><br> -->
+                                    <div id="container-table" style="display: none;">
+                                        <table class="customers">
+                                                <tbody id="resultPiad">
+
+                                                </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
                             </div>
                         </form>

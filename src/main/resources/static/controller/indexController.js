@@ -27,16 +27,17 @@ function PiadaDoDia() {
 
 
 function appendTabela(data) {
+
     var table = "";
     table += `<tr><th>Titulo</th><th>Texto</th><th>Curtir</th></tr>`
     for (let i = 0; i < data.length; i++)
         table += `<tr>
             <td>${data[i].titulo}</td>
             <td>${data[i].texto}</td>
-            <td> <a onclick="UpdateRanking(${data[i].id})">&#9746;</a></td> 
             </tr>`;
     document.getElementById("resultPiad").innerHTML = table;
 }
+{/* <td> <input onclick='UpdateRanking(${data[i].id})'type="submit"></input></td> */ }
 
 function pesquisar() {
     var filtro = document.getElementById("buscar").value;
@@ -65,27 +66,3 @@ function UpdateRanking(id) {
         });
 }
 
-function pesquisar1()
-{
-    
-    var filtro = document.getElementById("buscar").value
-    fetch("/apis/listar-piadas?filtro="+filtro)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        appendData(data);
-    })
-    .catch(function (err) {
-        console.log('error: ' + err);
-    });
-    function appendData(data) {
-
-        var table="";
-        table+=`<tr><th>Titulo</th><th>Texto</th></tr>`
-        for (let i=0;i<data.length;i++)
-                table+=`<tr><td>${data[i].titulo}</td><td>${data[i].texto}</td></tr>`;
-            document.getElementById("resultPiad").innerHTML=table;
-      
-    }
-}

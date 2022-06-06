@@ -15,5 +15,4 @@ public interface PiadaRepository extends JpaRepository<Piada, Long> {
 
     @Query(value = "UPDATE piada SET pi_ranking = pi_ranking+1 WHERE pi_id = id ", nativeQuery = true)
     List<Piada> findAllWithFilter(@Param("id") int id);
-    
 }
