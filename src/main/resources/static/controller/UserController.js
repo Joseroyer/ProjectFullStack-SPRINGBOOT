@@ -26,6 +26,7 @@ function gravar() {
         }).catch(function (error) {
             console.error(error);
         });
+        event.preventDefault("fdados");
 }
 
 function logar() {
